@@ -13,7 +13,7 @@ create TABLE customer_seq
 
 
 #Creatting a customer table
-CREATE TABLE IF  NOT EXISTS Costumer(
+CREATE TABLE IF  NOT EXISTS Customer(
 id varchar(7) NOT NULL PRIMARY KEY DEFAULT '0',
 first_name varchar(20) ,
 last_name varchar(20),
@@ -25,7 +25,7 @@ password varchar(20)
 );
 
 #Added DATE OF Birth Column
-ALTER TABLE Costumer ADD COLUMN DOB DATE NOT NULL; 
+ALTER TABLE Customer ADD COLUMN DOB DATE NOT NULL; 
 
 #Creating and Employee Table
 CREATE TABLE IF NOT EXISTS EMPLOYEE(
@@ -67,3 +67,8 @@ ALTER TABLE employee DROP COLUMN amount ;
 
 #ADDING SALARY COLUMN
 ALTER TABLE EMPLOYEE ADD salary int;
+
+#setting default password of qwerty123 
+alter table zapp.employee change  password password varchar(20) not null default 'qwerty123';
+
+alter table zapp.customer change password password varchar(20) not null default 'qwerty123';
