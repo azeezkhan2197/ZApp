@@ -1,0 +1,28 @@
+#Creatting a customer table
+CREATE TABLE IF  NOT EXISTS Costumer(
+id int(5) PRIMARY KEY AUTO_INCREMENT,
+first_name varchar(20) ,
+last_name varchar(20),
+gender varchar(10) ,
+email varchar(15) UNIQUE,
+phone int(10) UNIQUE,
+amount int,
+password varchar(20)
+);
+
+#Added DATE OF Birth Column
+ALTER TABLE Costumer ADD COLUMN DOB DATE NOT NULL; 
+
+#Creating and Employee Table
+CREATE TABLE IF NOT EXISTS EMPLOYEE(
+id int(5) PRIMARY KEY AUTO_INCREMENT,
+first_name varchar(20) ,
+last_name varchar(20),
+gender varchar(10) ,
+DOB date NOT NULL,
+email varchar(15) UNIQUE,
+phone int(10) UNIQUE,
+amount int,
+password varchar(20),
+role varchar(10)
+);
