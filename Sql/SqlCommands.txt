@@ -26,3 +26,10 @@ amount int,
 password varchar(20),
 role varchar(10)
 );
+
+
+#Dropping Amount column
+ALTER TABLE employee DROP COLUMN amount ; 
+
+#ADDING SALARY COLUMN
+ALTER TABLE EMPLOYEE ADD salary int;
