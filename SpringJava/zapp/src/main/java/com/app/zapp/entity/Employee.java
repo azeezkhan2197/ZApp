@@ -50,7 +50,7 @@ public class Employee {
 	@Column(name="phone")
 	private int phone;
 	
-	@Column(name="pasword")
+	@Column(name="password")
 	private String password;
 	
 	@Column(name="role")

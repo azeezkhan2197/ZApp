@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.app.zapp.dao.EmployeeRepository;
 import com.app.zapp.entity.Employee;
 
+@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
 	@Autowired
@@ -38,6 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public void addEmployee(Employee employee) {
+		employee.setId("1");
 		employeeRepository.save(employee);
 
 	}
@@ -57,22 +60,23 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 
 	}
-
-	@Override
-	public void editEmployee(Employee employee) {
-		Optional<Employee> result = employeeRepository.findById(employee.getId());
-		Employee theEmployee = result.get();
-		theEmployee.setDob(employee.getDob());
-		theEmployee.setEmail(employee.getEmail());
-		theEmployee.setFirstName(employee.getFirstName());
-		theEmployee.setGender(employee.getGender());
-		theEmployee.setLastName(employee.getLastName());
-		theEmployee.setPassword(employee.getPassword());
-		theEmployee.setPhone(employee.getPhone());
-		theEmployee.setRole(employee.getRole());
-		theEmployee.setSalary(employee.getSalary());
-		employeeRepository.save(theEmployee);
-		
+	
+	public void updateEmployee(Employee employee) {
+		employeeRepository.save(employee);
 	}
 
+	/*
+	 * @Override public void editEmployee(Employee employee) { Optional<Employee>
+	 * result = employeeRepository.findById(employee.getId()); Employee theEmployee
+	 * = result.get(); theEmployee.setDob(employee.getDob());
+	 * theEmployee.setEmail(employee.getEmail());
+	 * theEmployee.setFirstName(employee.getFirstName());
+	 * theEmployee.setGender(employee.getGender());
+	 * theEmployee.setLastName(employee.getLastName());
+	 * theEmployee.setPassword(employee.getPassword());
+	 * theEmployee.setPhone(employee.getPhone());
+	 * theEmployee.setRole(employee.getRole());
+	 * theEmployee.setSalary(employee.getSalary());
+	 * employeeRepository.save(theEmployee); }
+	 */
 }

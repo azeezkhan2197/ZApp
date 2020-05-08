@@ -38,6 +38,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void save(Customer customer) {
+		customer.setId("0");
 		customerRepository.save(customer);
 	}
 
@@ -59,19 +60,24 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public void editCustomer(Customer customer) {
-		Optional<Customer> result =  customerRepository.findById(customer.getId());
-		Customer theCustomer = result.get();
-		theCustomer.setAmount(customer.getAmount());
-		theCustomer.setDob(customer.getDob());
-		theCustomer.setEmail(customer.getEmail());
-		theCustomer.setFirstName(customer.getFirstName());
-		theCustomer.setGender(customer.getGender());
-		theCustomer.setLastName(customer.getLastName());
-		theCustomer.setPassword(customer.getPassword());
-		theCustomer.setPhoneNumber(customer.getPhoneNumber());
-		customerRepository.save(theCustomer);
-		
+	public void updateCustomer(Customer customer) {
+		customerRepository.save(customer);
 	}
+
+	/*
+	 * @Override public void editCustomer(Customer customer) { Optional<Customer>
+	 * result = customerRepository.findById(customer.getId()); Customer theCustomer
+	 * = result.get(); theCustomer.setAmount(customer.getAmount());
+	 * theCustomer.setDob(customer.getDob());
+	 * theCustomer.setEmail(customer.getEmail());
+	 * theCustomer.setFirstName(customer.getFirstName());
+	 * theCustomer.setGender(customer.getGender());
+	 * theCustomer.setLastName(customer.getLastName());
+	 * theCustomer.setPassword(customer.getPassword());
+	 * theCustomer.setPhoneNumber(customer.getPhoneNumber());
+	 * customerRepository.save(theCustomer);
+	 * 
+	 * }
+	 */
 
 }

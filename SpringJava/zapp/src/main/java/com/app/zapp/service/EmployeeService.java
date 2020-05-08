@@ -12,8 +12,10 @@ public interface EmployeeService {
 	
 	public void addEmployee(Employee employee);
 	
-	public void editEmployee(Employee employee);
+	//public void editEmployee(Employee employee);
 	
 	public void deleteEmployeeById(String id);
+	
+	public void updateEmployee(Employee employee);
 
 }
