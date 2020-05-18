@@ -28,23 +28,23 @@ public class CostumerController {
 		 return customerService.findAll();
 	}
 	
-	@GetMapping(value="/customer/{customerId}",produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/customers/{customerId}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public Customer getCustomerById(@PathVariable String customerId)
 	{
 		 return customerService.findById(customerId);
 	}
 	
-	@PostMapping(value="/customer")
+	@PostMapping(value="/customers")
 	public void addCustomer(@RequestBody Customer customer) {
 		customerService.save(customer);
 	}
 	
-	@PutMapping(value="/customer")
+	@PutMapping(value="/customers")
 	public void editCustomer(@RequestBody Customer customer) {
 		customerService.updateCustomer(customer);
 	}
 	
-	@DeleteMapping(value="/customer/{id}")
+	@DeleteMapping(value="/customers/{id}")
 	public void deleteCustomer(@PathVariable String id) {
 		customerService.deleteById(id);
 	}
