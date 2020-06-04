@@ -29,25 +29,30 @@ public class EmployeeController {
 		 return employeeService.getAllEmployee();
 	}
 	
-	@GetMapping(value="/employee/{empId}",produces=MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping(value="/employees/{empId}",produces=MediaType.APPLICATION_JSON_VALUE)
 	public Employee getEmployeeById(@PathVariable String empId)
 	{
 		 return employeeService.getEmployeeById(empId);
 	}
 	
-	@PostMapping(value="/employee")
+	@PostMapping(value="/employees")
 	public void addEmployee(@RequestBody Employee employee) {
 		employeeService.addEmployee(employee);
 	}
 	
-	@PutMapping(value="/employee")
+	@PutMapping(value="/employees")
 	public void editEmployee(@RequestBody Employee employee) {
 		employeeService.updateEmployee(employee);
 	}
 	
-	@DeleteMapping(value="/employee/{id}")
+	@DeleteMapping(value="/employees/{id}")
 	public void deleteEmployee(@PathVariable String id) {
 		employeeService.deleteEmployeeById(id);
+	}
+	
+	@GetMapping(value="/employees/password/{id}")
+	public String getPassword(@PathVariable String id) {
+		return employeeService.getPassword(id);
 	}
 	
 }

@@ -65,6 +65,18 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.save(employee);
 	}
 
+	public String getPassword(String id) {
+		Optional<Employee> result = employeeRepository.findById(id);
+
+		Employee theEmployee = null;
+
+		if (result.isPresent()) {
+			return employeeRepository.getPassword(id);
+		} else {
+			return null;
+		}
+
+	}
 	/*
 	 * @Override public void editEmployee(Employee employee) { Optional<Employee>
 	 * result = employeeRepository.findById(employee.getId()); Employee theEmployee

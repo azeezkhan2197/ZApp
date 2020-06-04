@@ -16,5 +16,7 @@ public interface CustomerService {
 	 
 	public void deleteById(String id);
 	
+	public String  getPassword(String id);
+	
 	//public void editCustomer(Customer customer);
 }

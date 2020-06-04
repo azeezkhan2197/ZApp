@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.app.zapp.entity.Customer;
@@ -47,6 +48,11 @@ public class CostumerController {
 	@DeleteMapping(value="/customers/{id}")
 	public void deleteCustomer(@PathVariable String id) {
 		customerService.deleteById(id);
+	}
+	
+	@GetMapping(value="/customers/password/{id}")
+	public String getPassword(@PathVariable String id) {
+		return customerService.getPassword(id);
 	}
 	
 

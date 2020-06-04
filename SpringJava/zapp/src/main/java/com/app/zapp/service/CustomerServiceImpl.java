@@ -56,7 +56,6 @@ public class CustomerServiceImpl implements CustomerService {
 			throw new RuntimeException("Did not find Customer id - " + id);
 		}
 
-
 	}
 
 	@Override
@@ -64,6 +63,17 @@ public class CustomerServiceImpl implements CustomerService {
 		customerRepository.save(customer);
 	}
 
+	public String getPassword(String id) {
+		Optional<Customer> result = customerRepository.findById(id);
+
+		Customer theCustomer = null;
+		if (result.isPresent()) {
+			return customerRepository.getPassword(id);
+		}
+		else {
+			return null;
+		}
+	}
 	/*
 	 * @Override public void editCustomer(Customer customer) { Optional<Customer>
 	 * result = customerRepository.findById(customer.getId()); Customer theCustomer
