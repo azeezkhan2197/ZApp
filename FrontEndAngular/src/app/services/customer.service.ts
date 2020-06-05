@@ -8,6 +8,7 @@ import { Customer } from 'src/model/customer.model';
 export class CustomerService {
   URL = 'http://localhost:7002/customers/';
   constructor(private http : HttpClient) { }
+  
   getById(id){
     return this.http.get(this.URL+String(id));
   }
@@ -31,7 +32,7 @@ export class CustomerService {
 
   getPassword(id){
     console.log("in the customer service "+id );
-    return this.http.get<String>(this.URL+'password/'+id);
+    return this.http.get<String>('http://localhost:7002/customers/password/'+id);
   }
 
 }

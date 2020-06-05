@@ -2,59 +2,62 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { CustomerService } from './customer.service';
+import { Customer } from 'src/model/customer.model';
+import { Employee } from 'src/model/employee.model';
+import { EmployeeService } from './employee.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
-  temporaryPassword: String;
-  constructor(private http: HttpClient,private customerService : CustomerService) { }
+  temporaryCustomer =  new Customer();
+  temporaryEmployee  = new Employee();
+  constructor(private http: HttpClient, private customerService: CustomerService,
+    private employeeService : EmployeeService) { }
 
 
   authenticateCustomer(userId: string, password: string) {
-    console.log("in the authentication service "+userId);
-    console.log(this.customerService.getPassword(userId));
-    this.customerService.getPassword(userId).subscribe(
+    console.log("password from the login is "+password);
+    this.customerService.getById(userId).subscribe(
       response => {
-        console.log("password is "+response as String);
-        this.temporaryPassword = response as String;
-        console.log("temporary password is  "+this.temporaryPassword);
+        this.temporaryCustomer = response as Customer;
+        console.log("temporary password is  " + this.temporaryCustomer.password);
       },
       error => {
         return false;
       }
     )
-    console.log("temporaryPassword id "+this.temporaryPassword +" and real password is "+password);
-    if (this.temporaryPassword == password) {
-      this.registerSuccessfulLogin(userId, password);
+    if (this.temporaryCustomer.password === password) {
+      this.registerSuccessfulLogin(userId);
       return true;
     }
-    else{
+    else {
       return false;
     }
   }
 
   authenticateEmployee(userId: string, password: string) {
-    this.http.get<String>('http://localhost:7002/employees/password/' + userId).subscribe(
+    this.employeeService.getById(userId).subscribe(
       repsonse => {
-        this.temporaryPassword = repsonse;
+        this.temporaryEmployee = repsonse as Employee;
+        console.log("temporary password in subscribe is " + this.temporaryEmployee.password)
       },
       error => {
         return false;
       }
     )
-    if (this.temporaryPassword === password) {
-      this.registerSuccessfulLogin(userId, password);
+    console.log("in authenticate method temporary password is "+this.temporaryEmployee.password);
+    if ( this.temporaryEmployee.password === password) {
+      this.registerSuccessfulLogin(userId);
       console.log()
       return true;
     }
-    else{
+    else {
       return false;
-    }this.registerSuccessfulLogin(userId, password);
-
+    }
   }
 
-  registerSuccessfulLogin(userId, password) {
+  registerSuccessfulLogin(userId) {
     sessionStorage.setItem('userId', userId)
   }
 

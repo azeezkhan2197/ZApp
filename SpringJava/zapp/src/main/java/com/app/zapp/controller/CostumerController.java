@@ -50,9 +50,18 @@ public class CostumerController {
 		customerService.deleteById(id);
 	}
 	
-	@GetMapping(value="/customers/password/{id}")
-	public String getPassword(@PathVariable String id) {
-		return customerService.getPassword(id);
+	@GetMapping(value="/customers/password/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+	public Password getPassword(@PathVariable String id) {
+		Password password = new  Password(customerService.getPassword(id));
+		return password;
+	}
+	public class Password {
+		private String password ;
+	    public Password(String password) {
+	    	this.password = password;
+	    }
+
+	    // get/set omitted...
 	}
 	
 

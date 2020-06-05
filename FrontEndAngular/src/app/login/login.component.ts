@@ -19,10 +19,9 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (this.userId.substring(0, 1) == 'C') {
-      console.log("in the login() function "+this.userId);
        
       if (this.service.authenticateCustomer(this.userId, this.password)) {
-        //this.message = 'Login Successful.';
+        
         this.router.navigate(['customer']);
       }
       else {
@@ -31,7 +30,7 @@ export class LoginComponent implements OnInit {
     }
     else {
       if (this.service.authenticateEmployee(this.userId, this.password)) {
-        this.router.navigate(['customer']);
+        this.router.navigate(['employee']);
       }
       else {
         this.message = "invalid userId or password";

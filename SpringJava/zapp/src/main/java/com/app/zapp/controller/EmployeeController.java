@@ -50,7 +50,7 @@ public class EmployeeController {
 		employeeService.deleteEmployeeById(id);
 	}
 	
-	@GetMapping(value="/employees/password/{id}")
+	@GetMapping(value="/employees/password/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
 	public String getPassword(@PathVariable String id) {
 		return employeeService.getPassword(id);
 	}
