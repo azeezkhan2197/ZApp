@@ -15,8 +15,7 @@ const routes: Routes = [
   {
     path: "customer", component: CustomerComponent, canActivate: [AuthorizationService],
     children: [
-      { path: "", component : InfoCustomerComponent ,canActivate: [AuthorizationService]},
-      { path : "infoCustomer", component : InfoCustomerComponent ,canActivate: [AuthorizationService]},
+      { path: "", component: InfoCustomerComponent, canActivate: [AuthorizationService] },
       { path: "editCustomer", component: EditCustomerComponent, canActivate: [AuthorizationService] },
       { path: "transfer", component: TransferComponent, canActivate: [AuthorizationService] },
       { path: "deposit", component: InfoCustomerComponent, canActivate: [AuthorizationService] }

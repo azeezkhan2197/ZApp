@@ -1,0 +1,29 @@
+<p>info-customer works!</p>
+<table *ngIf= "customer" mdbTable bordered="true">
+    <tbody>
+      <tr mdbTableCol>
+        <td>Id</td>
+        <td>{{customer.id}}</td>
+      </tr>
+      
+      <tr mdbTableCol>
+        <td>First Name</td>
+        <td>{{customer.firstName}}</td>
+      </tr>
+
+      <tr mdbTableCol>
+        <td>Last Name</td>
+        <td>{{customer.lastName}}</td>
+      </tr>
+      
+      <tr mdbTableCol>
+        <td>email</td>
+        <td>{{customer.email}}</td>
+      </tr>
+
+      <tr mdbTableCol>
+        <td>balance</td>
+        <td>{{customer.amount}}</td>
+      </tr>
+    </tbody>
+  </table>

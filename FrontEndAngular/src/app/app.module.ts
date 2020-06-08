@@ -8,6 +8,10 @@ import { EmployeeComponent } from './employee/employee.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
+import { InfoCustomerComponent } from './info-customer/info-customer.component';
+import { TransferComponent } from './transfer/transfer.component';
+import { DepositComponent } from './deposit/deposit.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +20,10 @@ import { HttpClientModule } from '@angular/common/http';
     EmployeeComponent,
     LoginComponent,
     LogoutComponent,
+    EditCustomerComponent,
+    InfoCustomerComponent,
+    TransferComponent,
+    DepositComponent,
   ],
   imports: [
     BrowserModule,
