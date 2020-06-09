@@ -18,5 +18,7 @@ public interface CustomerService {
 	
 	public String  getPassword(String id);
 	
+	public void depositAmount(String id,int amount);
+	
 	//public void editCustomer(Customer customer);
 }

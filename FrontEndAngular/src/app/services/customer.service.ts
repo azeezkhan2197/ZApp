@@ -17,13 +17,13 @@ export class CustomerService {
     return this.http.get(this.URL);
   }
 
-  editEmployee(employee){
-    console.log("in the service "+employee.firstName);
-    return this.http.put<Customer>(this.URL,employee);
+  editCustomer(customer){
+    console.log("in the service "+JSON.stringify(customer));
+    return this.http.put<Customer>(this.URL,customer);
   }
 
-  addEmployee(employee){    
-    return this.http.post<Customer>(this.URL,employee);
+  addCustomer(customer){    
+    return this.http.post<Customer>(this.URL,customer);
   }
 
   delete(id){

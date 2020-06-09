@@ -74,6 +74,12 @@ public class CustomerServiceImpl implements CustomerService {
 			return null;
 		}
 	}
+	
+	@Override
+	public void depositAmount(String customerId,int amount) {
+		customerRepository.depositAmount(customerId, amount);
+	}
+	
 	/*
 	 * @Override public void editCustomer(Customer customer) { Optional<Customer>
 	 * result = customerRepository.findById(customer.getId()); Customer theCustomer
