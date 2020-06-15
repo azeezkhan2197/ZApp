@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class DepositComponent implements OnInit {
   customer: Customer;
   amount : number;
+  warning : String = null;  ;
   constructor(private service: CustomerService,private router : Router ) { }
 
   ngOnInit() {
@@ -24,6 +25,7 @@ export class DepositComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.amount >0 ){
     this.customer.amount = this.amount + this.customer.amount;
     this.service.editCustomer(this.customer).subscribe(
       resposne=> console.log(resposne),
@@ -31,6 +33,10 @@ export class DepositComponent implements OnInit {
     );
 
     this.router.navigate(['customer']);
+    }
+    else{
+      this.warning =" amount should be greter than equal to zero";
+    }
   }
 
 }
