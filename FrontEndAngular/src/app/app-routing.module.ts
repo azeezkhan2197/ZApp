@@ -9,6 +9,7 @@ import { AuthorizationService } from './services/authorization.service';
 import { InfoCustomerComponent } from './info-customer/info-customer.component';
 import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 import { TransferComponent } from './transfer/transfer.component';
+import { DepositComponent } from './deposit/deposit.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,7 @@ const routes: Routes = [
       { path: 'infoCustomer', component: InfoCustomerComponent, canActivate: [AuthorizationService] },
       { path: 'editCustomer', component: EditCustomerComponent, canActivate: [AuthorizationService] },
       { path: 'transfer', component: TransferComponent, canActivate: [AuthorizationService] },
-      { path: 'deposit', component: InfoCustomerComponent, canActivate: [AuthorizationService] }
+      { path: 'deposit', component: DepositComponent, canActivate: [AuthorizationService] }
     ]
   },
   { path: 'employee', component: EmployeeComponent, canActivate: [AuthorizationService] },

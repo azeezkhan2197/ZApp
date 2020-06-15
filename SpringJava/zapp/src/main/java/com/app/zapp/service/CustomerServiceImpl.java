@@ -69,17 +69,17 @@ public class CustomerServiceImpl implements CustomerService {
 		Customer theCustomer = null;
 		if (result.isPresent()) {
 			return customerRepository.getPassword(id);
-		}
-		else {
+		} else {
 			return null;
 		}
 	}
-	
+
 	@Override
-	public void depositAmount(String customerId,int amount) {
-		customerRepository.depositAmount(customerId, amount);
+	public void depositAmount(String id, float amount) {
+		customerRepository.depositAmount(id, amount);
+
 	}
-	
+
 	/*
 	 * @Override public void editCustomer(Customer customer) { Optional<Customer>
 	 * result = customerRepository.findById(customer.getId()); Customer theCustomer

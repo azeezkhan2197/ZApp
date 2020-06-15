@@ -1,21 +1,23 @@
-<p>deposit works!</p>
+
 
 <div  *ngIf="customer" class="container-fluid">
     <table>
         <tr>
-            <td>Amount in the account</td>
+            <td>Amount in the account  :  </td>
             <td>{{customer.amount}}</td>
         </tr>
     </table>
-    <form   (ngSubmit)="onSubmit()" novalidate>
+    <form   (ngSubmit)="onSubmit()" >
         
         
         
-        <div class="form-group">
-            <label>Email</label>
+        <div class="col-xs-3">
+            <label>Deposit Amount</label>
             <input type="number"   required #textBox="ngModel" [class.is-invalid]="textBox.invalid && textBox.touched" name="ampunt" class="form-control" [(ngModel)]="amount">
-            <small *ngIf="textBox.invalid && textBox.touched" class="text-danger">email should contain atlease one character</small>
+            <small *ngIf="textBox.invalid && textBox.touched" class="text-danger">Text box should not be empty</small>
         </div>
+
+        <p></p>
 
         
 <!-- 
