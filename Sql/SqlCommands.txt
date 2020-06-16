@@ -3,7 +3,7 @@ SQL File1
 create database zapp;
 use zapp;
 #Creating a varchar Employee ID
-CREATE TABLE employee_seq
+CREATE TABLE zapp.employee_seq
 (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY
 );
