@@ -1,7 +1,7 @@
 SQL File1
 
-create database hbstudent;
-use hbstudent;
+create database zapp;
+use zapp;
 #Creating a varchar Employee ID
 CREATE TABLE employee_seq
 (
