@@ -1,5 +1,6 @@
 SQL File1
 
+create database hbstudent;
 use hbstudent;
 #Creating a varchar Employee ID
 CREATE TABLE employee_seq
