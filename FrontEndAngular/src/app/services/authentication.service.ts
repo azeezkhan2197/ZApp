@@ -15,18 +15,19 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private customerService: CustomerService,
     private employeeService : EmployeeService) { }
 
-
+    fetchdetails(userId: string, password: string){
+      this.customerService.getById(userId).subscribe(
+        response => {
+          this.temporaryCustomer = response as Customer;
+          console.log("temporary password is  " + this.temporaryCustomer.password);
+        },
+        error => {
+          return false;
+        }
+      )
+    }
   authenticateCustomer(userId: string, password: string) {
     console.log("password from the login is "+password);
-    this.customerService.getById(userId).subscribe(
-      response => {
-        this.temporaryCustomer = response as Customer;
-        console.log("temporary password is  " + this.temporaryCustomer.password);
-      },
-      error => {
-        return false;
-      }
-    )
     if (this.temporaryCustomer.password === password) {
       this.registerSuccessfulLogin(userId);
       return true;
