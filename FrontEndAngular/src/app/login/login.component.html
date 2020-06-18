@@ -1,6 +1,6 @@
 <p>login works!</p>
 <div class="alert alert-warning" *ngIf="message">{{ message }}</div>
-<div class="form col-sm-10 form-group-lg">
+<div  if class="form col-sm-10 form-group-lg">
     <form (ngSubmit)="login()" >
         <label>User ID</label>
         <input type="text" name="userId" class="form-control w-25" [(ngModel)]="userId">

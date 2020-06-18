@@ -55,6 +55,13 @@ public class CostumerController {
 		return customerService.getPassword(id);
 	}
 	
-	
+	@PutMapping(value="/customers/{id}/{amount}")
+	public void depositAmount(@PathVariable String id, @PathVariable String amount)
+	{
+		System.out.println("amount in controller is "+amount);
+		String floatAmount = amount.substring(0,amount.length());
+		customerService.depositAmount(id, Float.parseFloat(floatAmount));
+		
+	}
 
 }

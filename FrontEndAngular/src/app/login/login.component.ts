@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     if (this.userId.substring(0, 1) == 'C') {
        
       if (this.service.authenticateCustomer(this.userId, this.password)) {
-        
+      
         this.router.navigate(['customer']);
       }
       else {
