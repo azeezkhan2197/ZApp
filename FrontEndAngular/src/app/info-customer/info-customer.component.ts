@@ -12,16 +12,16 @@ export class InfoCustomerComponent implements OnInit {
   constructor(private service: CustomerService) { }
 
   ngOnInit() {
-    setInterval(() => {
-      this.service.getById(sessionStorage.getItem("userId")).subscribe(
-        result => {
-          this.customer = result as Customer;
-        },
-        error => console.log("error ")
-      );
-    },
-      1000)
 
+      setTimeout(() => {
+        this.service.getById(sessionStorage.getItem("userId")).subscribe(
+          result => {
+            this.customer = result as Customer;
+          },
+          error => console.log("error ")
+        );
+      },
+        1000);
 
   }
 
