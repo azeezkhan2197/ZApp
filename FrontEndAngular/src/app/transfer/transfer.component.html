@@ -1,1 +1,42 @@
 <p>transfer works!</p>
+
+<div class="alert alert-warning" *ngIf="insufficientAmountMessage ">{{ insufficientAmountMessage }}</div>
+<div class="alert alert-warning" *ngIf="wrongAccountNumberMessage ">{{ wrongAccountNumberMessage }}</div>
+
+<div  *ngIf="customer" class="container-fluid">
+    <form   (ngSubmit)="onSubmit()" novalidate>
+        
+        <div class="form-group">
+            <label>ID</label>
+            <input type="text"  disabled required #textBox="ngModel"  name="id" class="form-control" [(ngModel)]="customer.id">
+        </div>
+        
+        <div class="form-group">
+            <label>Amount Present</label>
+            <input type="number"  disabled required #textBox="ngModel" [class.is-invalid]="textBox.invalid && textBox.touched" name="Amount Present" class="form-control" [(ngModel)]="customer.amount">
+        </div>
+        
+        <div class="form-group">
+            <label>Receiver Account Id</label>
+            <input type="text"   required #textBox="ngModel" [class.is-invalid]="textBox.invalid && textBox.touched" name="depositorCustomerId" class="form-control" [(ngModel)]="depositorCustomerId">
+            <small *ngIf="textBox.invalid && textBox.touched" class="text-danger">Enter the Customer Id which you want to transfer amount to</small>
+            
+        </div>
+        
+        <div class="form-group">
+            <label>Amount</label>
+            <input type="number"   required #textBox="ngModel" [class.is-invalid]="textBox.invalid && textBox.touched" name="amount" class="form-control" [(ngModel)]="amount">
+            <small *ngIf="textBox.invalid && textBox.touched" class="text-danger">enter the amount which you want to transfer</small>
+        </div>
+
+        
+<!-- 
+        <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" name="checkBox" value="subscribe" [(ngModel)]="userModel.subscribe">
+                <label class="form-check-label" >check</label>
+        </div> -->
+        <button  class="btn btn-primary" type="submit">Edit Details</button>
+            
+    </form>
+</div>
+

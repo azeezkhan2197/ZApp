@@ -63,5 +63,12 @@ public class CostumerController {
 		customerService.depositAmount(id, Float.parseFloat(floatAmount));
 		
 	}
+	
+	@PutMapping(value="/customers/{id1}/{id2}/{amount}")
+	public void transferAmount(@PathVariable String id1,@PathVariable String id2,@PathVariable String amount ) {
+		//String customerId2 = id2.substring(0,amount.length());
+		String transferedAmount = amount.substring(0,amount.length());
+		customerService.transferAmount(id1, id2,Float.parseFloat(transferedAmount));
+	}
 
 }

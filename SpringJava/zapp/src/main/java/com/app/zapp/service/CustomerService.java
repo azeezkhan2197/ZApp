@@ -20,5 +20,8 @@ public interface CustomerService {
 	
 	public void depositAmount(String id,float amount);
 	
+	public void transferAmount(String customerId1,String customerId2,float amount);
+	
+	
 	//public void editCustomer(Customer customer);
 }
