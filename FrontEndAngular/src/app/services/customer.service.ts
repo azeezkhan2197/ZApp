@@ -35,4 +35,8 @@ export class CustomerService {
     return this.http.get<String>('http://localhost:7002/customers/password/'+id);
   }
 
+  transferFund(id1,id2,amount,customer){
+    return this.http.put<Customer>('http://localhost:7002/customers/'+id1+'/'+id2+'/'+amount,customer);
+  }
+
 }

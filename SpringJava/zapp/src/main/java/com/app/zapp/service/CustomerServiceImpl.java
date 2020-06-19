@@ -79,6 +79,13 @@ public class CustomerServiceImpl implements CustomerService {
 		customerRepository.depositAmount(id, amount);
 
 	}
+	
+	@Override
+	public void transferAmount(String customerId1,String customerId2,float transferAmount)
+	{
+		customerRepository.withdrawAmount(customerId1, transferAmount);
+		customerRepository.depositAmount(customerId2, transferAmount);
+	}
 
 	/*
 	 * @Override public void editCustomer(Customer customer) { Optional<Customer>
